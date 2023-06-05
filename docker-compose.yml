@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./docker_conf/server_conf
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    tty: true
+    volumes:
+      - ./server_conf/server_src/:/app
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: himitu
+      DB_PORT: 5432
+
+  db:
+    build:
+      context: ./docker_conf/db_conf
+      dockerfile: Dockerfile
