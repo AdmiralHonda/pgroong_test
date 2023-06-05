@@ -1,0 +1,19 @@
+@startuml
+
+entity Category{
+    *id : int
+    ---
+    name : str
+}
+
+entity Item{
+    *id : int
+    ---
+    name : str
+    price : int
+    *category_id : int
+}
+
+Item }|-- Category
+
+@enduml
